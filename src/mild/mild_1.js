@@ -63,6 +63,6 @@ export function countArray(array) {
     } else {
       counter[item] = 1;
     }
-  });
+  } );
   return counter;
 }
