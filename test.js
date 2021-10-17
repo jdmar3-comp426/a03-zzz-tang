@@ -1,7 +1,7 @@
 // Generate array with random numbers
 let testArray = [];
 for (let i = 0; i < 10; i++) {
-  testArray.push( Math.floor( Math.random() * 100 ) );
+  testArray.push( Math.floor( Math.random() * 10 ) );
 }
 console.log( "Test array: [ " + testArray.join(", ") + " ]" );
 
@@ -19,3 +19,8 @@ console.log( getIncreasingArray(3, 7) );
 import { maxAndMin } from "./src/mild/mild_1.js";
 console.log( "\nTest maxAndMin()" );
 console.log( maxAndMin(testArray) );
+
+// Test countArray()
+import { countArray } from "./src/mild/mild_1.js";
+console.log( "\nTest countArray()" );
+console.log( countArray(testArray) );
