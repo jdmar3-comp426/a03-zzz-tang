@@ -1,9 +1,9 @@
 // Generate array with random numbers
-let testArray = [];
+let randomNumberArray = [];
 for (let i = 0; i < 10; i++) {
-  testArray.push( Math.floor( Math.random() * 10 ) );
+  randomNumberArray.push( Math.floor( Math.random() * 10 ) );
 }
-console.log( "Test array: [ " + testArray.join(", ") + " ]" );
+console.log( "Test array: [ " + randomNumberArray.join(", ") + " ]" );
 
 // Test sumToString()
 import { sumToString } from "./src/mild/mild_1.js";
@@ -18,14 +18,20 @@ console.log( getIncreasingArray(3, 7) );
 // Test maxAndMin()
 import { maxAndMin } from "./src/mild/mild_1.js";
 console.log( "\nTest maxAndMin()" );
-console.log( maxAndMin(testArray) );
+console.log( maxAndMin(randomNumberArray) );
 
 // Test countArray()
 import { countArray } from "./src/mild/mild_1.js";
 console.log( "\nTest countArray()" );
-console.log( countArray(testArray) );
+console.log( countArray(randomNumberArray) );
 
 // Test identifyVariable()
 import { identifyVariable } from "./src/mild/mild_2.js";
 console.log( "\nTest identifyVariable()" );
-console.log( identifyVariable( 4 ) );
+console.log( identifyVariable(4) );
+
+// Test identifyArray()
+import { identifyArray } from "./src/mild/mild_2.js";
+let unknownElementsArray = [ 'some', 3, [3, 4], false ];
+console.log( "\nTest identifyArray()" );
+console.log( identifyArray(unknownElementsArray) );

@@ -27,7 +27,11 @@ export function identifyVariable(variable) {
 
  */
 export function identifyArray(array) {
-
+  let identification = [];
+  array.forEach( item => {
+    identification.push( { type: typeof item, value: item } );
+  } );
+  return identification;
 }
 
 /**
