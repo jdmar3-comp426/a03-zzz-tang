@@ -24,3 +24,8 @@ console.log( maxAndMin(testArray) );
 import { countArray } from "./src/mild/mild_1.js";
 console.log( "\nTest countArray()" );
 console.log( countArray(testArray) );
+
+// Test identifyVariable()
+import { identifyVariable } from "./src/mild/mild_2.js";
+console.log( "\nTest identifyVariable()" );
+console.log( identifyVariable( 4 ) );
