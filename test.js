@@ -69,3 +69,8 @@ let obj3 = {
 };
 console.log( "\nTest removeKeys()" );
 console.log( removeKeys( obj3, ['password', 'age'] ) );
+
+// Test getSum()
+import { getSum } from "./src/medium/medium_1.js";
+console.log( "\nTest getSum()" );
+console.log( getSum(randomNumberArray) );
