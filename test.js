@@ -45,6 +45,16 @@ let obj = {
   password: 'pass123'
 };
 console.log( "\nTest removeKey()" );
-console.log(obj);
 removeKey(obj, 'password');
 console.log(obj);
+
+// Test removeKeyNonDestructive()
+import { removeKeyNonDestructive } from "./src/mild/mild_2.js";
+let obj2 = {
+  name: 'Mr. Boss',
+  title: 'boss',
+  age: 33,
+  password: 'pass123'
+};
+console.log( "\nTest removeKeyNonDestructive()" );
+console.log( removeKeyNonDestructive(obj2, 'password') );
