@@ -1,7 +1,7 @@
 // Generate array with random numbers
 let randomNumberArray = [];
-for (let i = 0; i < 10; i++) {
-  randomNumberArray.push( Math.floor( Math.random() * 10 ) );
+for (let i = 0; i < 5; i++) {
+  randomNumberArray.push( Math.floor( Math.random() * 100 ) );
 }
 console.log( "Test array: [ " + randomNumberArray.join(", ") + " ]" );
 
@@ -79,3 +79,10 @@ console.log( getSum(randomNumberArray) );
 import { getMedian } from "./src/medium/medium_1.js";
 console.log( "\nTest getMedian()" );
 console.log( getMedian(randomNumberArray) );
+
+// Test getStatistics()
+import { getStatistics } from "./src/medium/medium_1.js";
+console.log( "\nTest getStatistics()" );
+//console.log( getStatistics( [3,2,4,5,5,5,2,6,7] ) );
+console.log( getStatistics(randomNumberArray) );
+console.log( Math.sqrt(2.6) );
