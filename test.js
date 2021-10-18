@@ -74,3 +74,8 @@ console.log( removeKeys( obj3, ['password', 'age'] ) );
 import { getSum } from "./src/medium/medium_1.js";
 console.log( "\nTest getSum()" );
 console.log( getSum(randomNumberArray) );
+
+// Test getMedian()
+import { getMedian } from "./src/medium/medium_1.js";
+console.log( "\nTest getMedian()" );
+console.log( getMedian(randomNumberArray) );
