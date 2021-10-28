@@ -83,6 +83,4 @@ console.log( getMedian(randomNumberArray) );
 // Test getStatistics()
 import { getStatistics } from "./src/medium/medium_1.js";
 console.log( "\nTest getStatistics()" );
-//console.log( getStatistics( [3,2,4,5,5,5,2,6,7] ) );
-console.log( getStatistics(randomNumberArray) );
-console.log( Math.sqrt(2.6) );
+console.log( getStatistics( [3,2,4,5,5,5,2,6,7] ) );
