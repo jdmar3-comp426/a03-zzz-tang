@@ -1,3 +1,5 @@
+import mpg_data from "./src/medium/data/mpg_data.js";
+
 // Generate array with random numbers
 let randomNumberArray = [];
 for (let i = 0; i < 5; i++) {
@@ -96,3 +98,8 @@ console.log( "\nTest moreStats" );
 console.log( moreStats );
 console.log( moreStats.makerHybrids );
 console.log( moreStats.avgMpgByYearAndHybrid );
+
+// Test searchHighPower
+import { searchHighPower } from "./src/medium/medium_3.js";
+console.log( "\nTest searchHighPower" );
+console.log( searchHighPower( mpg_data, 300, 300 ) );

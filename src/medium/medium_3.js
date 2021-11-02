@@ -1,3 +1,4 @@
+import { countArray } from "../mild/mild_1.js";
 import mpg_data from "./data/mpg_data.js";
 
 /*
@@ -18,7 +19,13 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+  return car_data.filter( car => {
+    if( car.horsepower >= minHorsepower && car.torque >= minTorque ) {
+      return car;
+    }
+  } ).sort( ( current, next ) => {
+    return next.horsepower - current.horsepower;
+  } );
 }
 
 
