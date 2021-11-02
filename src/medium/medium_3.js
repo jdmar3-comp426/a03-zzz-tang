@@ -83,5 +83,18 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
+  
+  let results = [];
 
+  years.forEach( year => {
+    results = results.concat( car_data.filter( car => {
+      return year === car.year;
+    } ) );
+  } );
+
+  results.sort( ( current, next ) => {
+    return next.year - current.year;
+  } );
+
+  return results;
 }

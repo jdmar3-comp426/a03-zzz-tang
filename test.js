@@ -113,3 +113,8 @@ console.log( searchMpg( mpg_data, 30, 30 ) );
 import { searchName } from "./src/medium/medium_3.js";
 console.log( "\nTest searchName" );
 console.log( searchName( mpg_data, "turbo" ) );
+
+// Test searchByYear
+import { searchByYear } from "./src/medium/medium_3.js";
+console.log( "\nTest searchByYear" );
+console.log( searchByYear( mpg_data, [ 2009, 2010 ] ) );
