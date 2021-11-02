@@ -108,3 +108,8 @@ console.log( searchHighPower( mpg_data, 300, 300 ) );
 import { searchMpg } from "./src/medium/medium_3.js";
 console.log( "\nTest searchMpg" );
 console.log( searchMpg( mpg_data, 30, 30 ) );
+
+// Test searchName
+import { searchName } from "./src/medium/medium_3.js";
+console.log( "\nTest searchName" );
+console.log( searchName( mpg_data, "turbo" ) );

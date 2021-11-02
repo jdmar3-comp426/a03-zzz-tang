@@ -59,7 +59,18 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+  let searchPattern = new RegExp( searchTerm, "i" );
+  return car_data.reduce( ( results, car ) => {
+    let termIndex = car.id.search( searchPattern );
+    if( termIndex != -1 ) {
+      results.push( { data: car, order: termIndex } );
+    }
+    return results;
+  }, [] ).sort( ( current, next ) => {
+    return current.order - next.order;
+  } ).map( car => {
+    return car.data;
+  } );
 }
 
 
