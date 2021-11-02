@@ -103,3 +103,8 @@ console.log( moreStats.avgMpgByYearAndHybrid );
 import { searchHighPower } from "./src/medium/medium_3.js";
 console.log( "\nTest searchHighPower" );
 console.log( searchHighPower( mpg_data, 300, 300 ) );
+
+// Test searchMpg
+import { searchMpg } from "./src/medium/medium_3.js";
+console.log( "\nTest searchMpg" );
+console.log( searchMpg( mpg_data, 30, 30 ) );
