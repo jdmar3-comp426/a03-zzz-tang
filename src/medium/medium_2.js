@@ -22,19 +22,19 @@ see under the methods section
 export const allCarStats = {
     avgMpg: {
       city: mpg_data.reduce( ( previous, current ) => {
-        return previous + current.city_mpg
-      } ) / mpg_data.length,
+        return previous + current.city_mpg;
+      }, 0 ) / mpg_data.length,
       highway: mpg_data.reduce( ( previous, current ) => {
-          return previous + current.highway_mpg
-      } ) / mpg_data.length
+          return previous + current.highway_mpg;
+      }, 0 ) / mpg_data.length
     },
     allYearStats: getStatistics(
         mpg_data.map( ( element ) => {
-          return element.model_year
+          return element.year;
         } )
     ),
     ratioHybrids: mpg_data.filter( element => {
-      element.hybrid == true
+      return element.hybrid;
     } ).length / mpg_data.length,
 };
 
@@ -96,7 +96,99 @@ export const allCarStats = {
  *
  * }
  */
+
 export const moreStats = {
-    makerHybrids: undefined,
-    avgMpgByYearAndHybrid: undefined
+
+    // reduce() to sort the cars by make
+    makerHybrids: mpg_data.reduce( ( previous, current ) => {
+
+      // Only consider hybrid cars
+      if( current.hybrid ) {
+  
+        // findIndex() to see if there is already a category for
+        // the make of the current hybrid car
+        let index = previous.findIndex( group => {
+          return group.make === current.make;
+        } );
+        if( index === -1 ) {
+          previous.push( {
+            make: current.make,
+            hybrids: [current.id]
+          } );
+        } else {
+          previous[index].hybrids.push(current.id);
+        }
+  
+      }
+      return previous;
+    
+    // Sort descending
+    }, [] ).sort( ( current, next ) => {
+      return next.hybrids.length - current.hybrids.length;
+    } ),
+
+    avgMpgByYearAndHybrid: mpg_data.reduce( ( previous, current ) => {
+        
+        // Sort the cars by year
+        let year = current.year;
+
+        // If the year of the current object is not present
+        if( !previous[year] ) {
+
+          // Create a property with the year
+          // And find all relevant information for that year
+          previous[year] = {
+            hybrid: {
+              city: mpg_data.reduce( ( cityTotal, currentCar ) => {
+                if( currentCar.hybrid && currentCar.year === year ) {
+                  cityTotal += currentCar.city_mpg;
+                }
+                return cityTotal;
+              }, 0 ) / mpg_data.reduce( ( cityNumber, currentCar ) => {
+                if( currentCar.hybrid && currentCar.year === year ) {
+                  cityNumber++;
+                }
+                return cityNumber;
+              }, 0 ),
+              highway: mpg_data.reduce( ( highwayTotal, currentCar ) => {
+                if( currentCar.hybrid && currentCar.year === year ) {
+                  highwayTotal += currentCar.highway_mpg;
+                }
+                return highwayTotal;
+              }, 0 ) / mpg_data.reduce( ( highwayNumber, currentCar ) => {
+                if( currentCar.hybrid && currentCar.year === year ) {
+                  highwayNumber++;
+                }
+                return highwayNumber;
+              }, 0 )
+            },
+            notHybrid: {
+              city: mpg_data.reduce( ( cityTotal, currentCar ) => {
+                if( !currentCar.hybrid && currentCar.year === year ) {
+                  cityTotal += currentCar.city_mpg;
+                }
+                return cityTotal;
+              }, 0 ) / mpg_data.reduce( ( cityNumber, currentCar ) => {
+                if( !currentCar.hybrid && currentCar.year === year ) {
+                  cityNumber++;
+                }
+                return cityNumber;
+              }, 0 ),
+              highway: mpg_data.reduce( ( highwayTotal, currentCar ) => {
+                if( !currentCar.hybrid && currentCar.year === year ) {
+                  highwayTotal += currentCar.highway_mpg;
+                }
+                return highwayTotal;
+              }, 0 ) / mpg_data.reduce( ( highwayNumber, currentCar ) => {
+                if( !currentCar.hybrid && currentCar.year === year ) {
+                  highwayNumber++;
+                }
+                return highwayNumber;
+              }, 0 )
+            }
+          };
+        }
+        return previous;
+      }, {} )
+
 };

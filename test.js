@@ -84,3 +84,15 @@ console.log( getMedian(randomNumberArray) );
 import { getStatistics } from "./src/medium/medium_1.js";
 console.log( "\nTest getStatistics()" );
 console.log( getStatistics( [3,2,4,5,5,5,2,6,7] ) );
+
+// Test allCarStats
+import { allCarStats } from "./src/medium/medium_2.js";
+console.log( "\nTest allCarStats" );
+console.log( allCarStats );
+
+// Test moreStats
+import { moreStats } from "./src/medium/medium_2.js";
+console.log( "\nTest moreStats" );
+console.log( moreStats );
+console.log( moreStats.makerHybrids );
+console.log( moreStats.avgMpgByYearAndHybrid );
