@@ -1,5 +1,7 @@
 import mpg_data from "./src/medium/data/mpg_data.js";
 
+/*
+
 // Generate array with random numbers
 let randomNumberArray = [];
 for (let i = 0; i < 5; i++) {
@@ -118,3 +120,58 @@ console.log( searchName( mpg_data, "turbo" ) );
 import { searchByYear } from "./src/medium/medium_3.js";
 console.log( "\nTest searchByYear" );
 console.log( searchByYear( mpg_data, [ 2009, 2010 ] ) );
+
+// Test repeat
+import { repeatDemo } from "./src/spicy/spicy_9.js";
+console.log( "\nTest repeat with repeatDemo" );
+repeatDemo();
+
+// Test multiplyBy
+import { tenTimes } from "./src/spicy/spicy_9.js";
+console.log( "\nTest multiplyBy with tenTimes" );
+console.log( tenTimes(2) );
+import { tenTimesFifty } from "./src/spicy/spicy_9.js";
+console.log( "\nTest multiplyBy with tenTimesFifty" );
+console.log( tenTimesFifty() );
+
+// Test everyEven
+import { everyEven } from "./src/spicy/spicy_9.js";
+console.log( "\nTest everyEven" );
+console.log( everyEven( [1, 5, 1, 0, 1], x => x === 1 ) ); // true
+console.log( everyEven( [1, 1, 0, 1, 1], x => x === 1 ) ); // false
+
+// Test someEven
+import { someEven } from "./src/spicy/spicy_9.js";
+console.log( "\nTest someEven" );
+console.log( someEven( [4, 3, 2, 1, 0], x => x === 3 ) ); // false
+console.log( someEven( [1, 0, 1, 0, 1], x => x === 0 ) ); // false
+console.log( someEven( [1, 1, 1, 1, 0], x => x === 0 ) ); // true
+console.log( someEven( [0, 0, 0, 0, 0], x => x === 0 ) ); // true
+
+// Test filter
+import { filter } from "./src/spicy/spicy_9.js";
+console.log( "\nTest filter" );
+console.log( filter( ['yes', 'nope', 'maybe', 'yellow'], x => x[0] === 'y' ) );
+// { pass: ['yes', 'yellow'], fail: ['nope', 'maybe'] }
+console.log( filter( [1, 90, 5, 31], x => x % 2 === 1 ) );
+// { pass: [1, 5, 31], fail: [90] }
+
+// Test allEvensAreOdd
+import { allEvensAreOdd } from "./src/spicy/spicy_9.js";
+console.log( "\nTest allEvensAreOdd" );
+console.log( allEvensAreOdd( [1, 5, 1, 0, 1], x => x === 1 ) ); // true
+console.log( allEvensAreOdd( [1, 1, 0, 1, 1], x => x === 1 ) ); // false
+
+// Test anEvenIsOdd
+import { anEvenIsOdd } from "./src/spicy/spicy_9.js";
+console.log( "\nTest anEvenIsOdd" );
+console.log( anEvenIsOdd( [1, 5, 0, 0, 1], x => x === 1 ) ); // true
+console.log( anEvenIsOdd( [0, 1, 0, 1, 0], x => x === 1 ) ); // false
+
+// Test hasExactly
+import { hasExactly } from "./src/spicy/spicy_9.js";
+console.log( "\nTest hasExactly" );
+console.log( hasExactly( ['yes', 'nope', 'maybe', 'yellow'], x => x[0] === 'y', 2 ) );
+console.log( hasExactly( [1, 90, 5, 31], x => x % 2 === 1, 3 ) );
+
+*/
