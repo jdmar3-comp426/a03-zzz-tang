@@ -72,11 +72,8 @@ export function removeKey(object, key) {
  */
 export function removeKeyNonDestructive(object, key) {
   const newObject = {};
-  for (let item in object) {
-    if (item !== key) {
-      newObject[item] = object[item];
-    }
-  }
+  Object.assign( newObject, object );
+  delete newObject[key];
   return newObject;
 }
 
@@ -102,8 +99,10 @@ export function removeKeyNonDestructive(object, key) {
  * @return {*} The object with its keys removed.
  */
 export function removeKeys(object, keyList) {
-  keyList.forEach( item => {
-    delete object[item];
+  const newObject = {};
+  Object.assign( newObject, object );
+  keyList.forEach( key => {
+    delete newObject[key];
   } );
-  return object;
+  return newObject;
 }
