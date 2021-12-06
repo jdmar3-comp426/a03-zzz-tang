@@ -1,3 +1,4 @@
+import { countArray } from "../mild/mild_1.js";
 import mpg_data from "./data/mpg_data.js";
 
 /*
@@ -18,7 +19,13 @@ queries.
  *
  */
 export function searchHighPower(car_data, minHorsepower, minTorque) {
-
+  return car_data.filter( car => {
+    if( car.horsepower >= minHorsepower && car.torque >= minTorque ) {
+      return car;
+    }
+  } ).sort( ( current, next ) => {
+    return next.horsepower - current.horsepower;
+  } );
 }
 
 
@@ -33,7 +40,13 @@ export function searchHighPower(car_data, minHorsepower, minTorque) {
  *
  */
 export function searchMpg(car_data, minCity, minHighway) {
-
+  return car_data.filter( car => {
+    if( car.city_mpg >= minCity && car.highway_mpg >= minHighway ) {
+      return car;
+    }
+  } ).sort( ( current, next ) => {
+    return next.highway_mpg - current.highway_mpg;
+  } );
 }
 
 
@@ -46,7 +59,18 @@ export function searchMpg(car_data, minCity, minHighway) {
  * @returns {[]} array of cars
  */
 export function searchName(car_data, searchTerm) {
-
+  let searchPattern = new RegExp( searchTerm, "i" );
+  return car_data.reduce( ( results, car ) => {
+    let termIndex = car.id.search( searchPattern );
+    if( termIndex != -1 ) {
+      results.push( { data: car, order: termIndex } );
+    }
+    return results;
+  }, [] ).sort( ( current, next ) => {
+    return current.order - next.order;
+  } ).map( car => {
+    return car.data;
+  } );
 }
 
 
@@ -59,5 +83,18 @@ export function searchName(car_data, searchTerm) {
  * @returns {[]} an array of car objects
  */
 export function searchByYear(car_data, years) {
+  
+  let results = [];
 
+  years.forEach( year => {
+    results = results.concat( car_data.filter( car => {
+      return year === car.year;
+    } ) );
+  } );
+
+  results.sort( ( current, next ) => {
+    return next.year - current.year;
+  } );
+
+  return results;
 }
